@@ -1,0 +1,11 @@
+<r>{{ room.description }}</i>
+<br>
+{% if draw_inventory %}
+  <b>Room contains:</b>
+  <ul>
+  {% for item, count in room.inventory.items() %}
+    {% if count %}<li>{{item.name}} {% if count > 1 %}{{count}}{% endif %}</li>{% endif %}
+  {% endfor %}
+  </ul>
+{% endif %}
+

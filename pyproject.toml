@@ -1,0 +1,24 @@
+[project]
+name = "escape_room"
+authors = [{name = "rhea pendragon", email = "rhea.j.pendragon@gmail.com"}]
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "flask",
+  "pydantic",
+  "pyodmongo",
+  "flask-login",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest"
+]
+
+[project.scripts]
+run = "escape_room.app:run"
+
+[tool.setuptools]
+py-modules = [
+  "escape_room"
+]

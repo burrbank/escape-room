@@ -1,0 +1,11 @@
+<ul>
+{% if draw_inventory %}
+{% for item, count in inventory.items() %}
+  {% if count %}
+    <li>{{item.name}} {% if count > 1 %}{{count}}{% endif %}</li>
+  {% endif %}
+{% endfor %}
+{% else %}
+<i>Your pockets are empty</i>
+{% endif %}
+</ul>
