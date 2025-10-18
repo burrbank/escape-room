@@ -1,15 +1,17 @@
 from collections import defaultdict
+import os
 from typing import Tuple
+
 from flask import Flask, render_template, request, session
 
-from escape_room.models import Room, User, Item
-from escape_room.enums import Status, ItemStatus
-from escape_room.wrappers import content
 from escape_room.admin.crm import bp as crm_blueprint
+from escape_room.enums import ItemStatus, Status
 from escape_room.login import login_manager
+from escape_room.models import Item, Room, User
+from escape_room.wrappers import content
 
 app = Flask(__name__)
-app.secret_key = "asd;lfkj"
+app.secret_key = os.environ.get("SECRET_KEY", "dev")
 app.register_blueprint(crm_blueprint, url_prefix="/crm")
 login_manager.init_app(app)
 
